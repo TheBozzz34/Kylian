@@ -11,6 +11,8 @@ use std::{
     env
 };
 
+mod gui;
+
 fn main() {
     let args: Vec<String> = env::args().collect();
 
@@ -45,6 +47,7 @@ fn main() {
     }
 
     match action.as_str() {
+        "gui" => run_gui(),
         _ => println!("Unknown action: {}", action),
     }
 }
@@ -133,4 +136,7 @@ fn encrypt_file_no_pass(input_file: &str, output_file: &str) -> Result<(), Box<d
     Ok(())
 }
 
+fn run_gui() {
+    gui::run_window();
+}
 
